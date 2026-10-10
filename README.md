@@ -24,6 +24,10 @@ ZFT Cinematics is the first planned integration. Other ZFT modules can opt in as
 - V14: planned; not live verified
 - License: MIT
 
+## Development and releases
+
+See [DEVELOPMENT.md](DEVELOPMENT.md) for the shared ZFT branching, testing, versioning, promotion-to-main, and GitHub Release workflow.
+
 ## Repository conventions
 
 - `main` is the default branch.
