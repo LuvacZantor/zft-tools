@@ -1,0 +1,13 @@
+/* Shared ZFT visual identity. Scoped to our own SceneControl group/tools. */
+:root { --zft-tools-yellow: #ffba00; }
+#scene-controls [data-control="zft-tools"],
+#scene-controls [data-control="zft-tools"] i,
+#scene-controls [data-control="zft-tools"] svg,
+#scene-controls [data-tool^="zft-"] i,
+#scene-controls [data-tool^="zft-"] svg {
+  color: var(--zft-tools-yellow) !important;
+}
+#scene-controls [data-control="zft-tools"] .control-icon,
+#scene-controls [data-tool^="zft-"] .control-icon {
+  color: var(--zft-tools-yellow) !important;
+}
