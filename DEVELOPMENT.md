@@ -2,7 +2,21 @@
 
 This document is the shared workflow for **Zantor's Realms Foundry Tools (ZFT)** GitHub repositories, including `zft-tools` and `zft-cinematics`.
 
-**Core rule:** Keep working code stable, test changes before promotion, and do not publish a GitHub Release or update stable source without the owner's explicit approval.
+**Core rule:** Keep working code stable, test changes before promotion, and **never write to any GitHub repository without explicit, task-specific approval from the owner**. This applies to every branch, file, commit, tag, release, and repository setting.
+
+## Repository write authorization (mandatory)
+
+**No GitHub writes without the owner's explicit approval. No exceptions for `develop`, documentation, or small fixes.**
+
+- This applies to creating, changing, or deleting repository files, commits, branches, tags, pull requests, releases, repository settings, or other remote GitHub state.
+- It applies equally to GitHub connectors, API calls, local Git pushes, and any other mechanism that changes a remote repository.
+- Local coding, local test builds, ZIP packaging, reviews, proposed diffs, and read-only GitHub inspection do not require repository-write approval.
+- Before writing, state **which repository, branch, files or objects, intended changes, and commit/release action** are proposed. Obtain approval for that specific write, unless the user's current request already explicitly authorizes those exact changes and target.
+- Approval is limited to the named operation or clearly bounded set of operations. Approval for one commit or push does **not** authorize additional GitHub writes, a merge to `main`, tagging, or publishing a Release. Seek new approval for additional operations.
+- General coding requests such as "fix this", "build it", "update the module", or "proceed" are **not** permission to push to GitHub. A clear instruction to change a named repository and branch or a direct approval of a specific proposed push **is** permission for that scope only.
+- If the remote branch or files differ unexpectedly, stop and ask before making corrective writes. Do not force-push, rewrite history, or silently "fix" remote changes.
+
+The owner's acceptance of a local build is **not** authorization to change `main` or publish a release. Treat those as separate approval steps.
 
 ## Branches
 
@@ -17,7 +31,7 @@ Do not create version-number branches such as `v1.1.0`. Those names belong to ta
 
 **Never merge or copy development code into `main` simply because a build compiles, passes simulated tests, or looks complete.** Promotion requires successful live testing and approval.
 
-Documentation or repository housekeeping may be committed to `main` without promoting an untested implementation. Do not overwrite stable module files as part of housekeeping.
+Documentation and repository housekeeping are **not exempt** from write approval. They may be committed to `main` only when the owner explicitly authorizes that particular change to `main`; they must never be used to promote untested implementation changes.
 
 ## Version numbers
 
@@ -41,14 +55,14 @@ After approval, the accepted build becomes the stable version (for example, `0.1
 
 ## Development workflow
 
-1. Begin from the appropriate development branch, usually `develop`; use an optional feature branch only when it improves isolation.
+1. Prepare the change locally against the appropriate development branch, usually `develop`. Creating or updating a remote branch also requires explicit approval.
 2. Make the focused change. Preserve working behavior and existing functionality.
 3. Update `module.json` and references to the same development version when a new test build is warranted.
 4. Validate JSON, JavaScript syntax, archive structure, and the affected APIs. Automated checks do **not** equal live Foundry verification.
 5. Package the test build and provide a short, specific test procedure.
-6. Test in the intended Foundry environment. Fix regressions on the development branch and issue the next `-dev.N` build as necessary.
+6. Test in the intended Foundry environment. Fix regressions locally and issue the next `-dev.N` test build as necessary; upload development changes to a remote branch only after separate, scoped approval.
 7. Record what passed, what failed, and any unresolved compatibility issues. Do not claim V13/V14 verified without testing each target.
-8. When the owner explicitly accepts the build, prepare its stable version and ask for explicit authorization before promoting it to `main`.
+8. When the owner explicitly accepts the build, prepare its stable version and request separate, specific permission before committing, pushing, or merging anything to `main`.
 
 The normal priority is **production stability over experimental functionality**. In particular, V13 Build 351 is a current production target; V14 support should be validated separately, not inferred.
 
@@ -59,7 +73,7 @@ Once the owner confirms that a development build is accepted:
 1. Confirm exactly which tested commit/build is being released and which changes are included.
 2. Update the stable version in `module.json`, logs, and applicable documentation. The version must match the scope of the release.
 3. Prepare a changelog/release summary and validate that the stable package matches the final code.
-4. Merge the approved code into `main` only after explicit authorization. Preserve existing history; do not force-push or replace `main` with an unrelated tree.
+4. Describe the proposed merge and obtain explicit approval to write to `main`, even if the build was previously approved. Merge only the authorized code. Preserve existing history; do not force-push or replace `main` with an unrelated tree.
 5. Confirm the source and version now on `main`.
 6. Create the GitHub release tag from the **approved `main` commit**, not from an experimental or unfinished branch.
 7. Publish the GitHub Release using that exact tag, the matching ZIP, and release notes.
@@ -119,9 +133,9 @@ No ZIP timestamp suffix, second nested module folder, `-final` suffix, or mismat
 
 ## Approval rules
 
-**The owner decides when a build is accepted, when `main` is updated, and when a release is published.**
+**The owner authorizes every GitHub repository write, decides when a build is accepted, when `main` is updated, and when a release is published.**
 
-The assistant may prepare and test changes, update the approved development branch, and draft release material. It must not silently promote unverified code to `main`, create a release tag prematurely, or claim a GitHub Release exists without verification.
+The assistant may develop and test locally, inspect GitHub read-only, prepare patches/ZIPs, and draft release material without additional permission. **It must not write to any remote branch, including `develop`, until the owner specifically authorizes the proposed write.** Approval for one GitHub operation does not authorize the next. It must not silently promote code to `main`, create a tag, publish a Release, or claim publication without verification.
 
 ## Related repositories
 
