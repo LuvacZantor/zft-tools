@@ -1,5 +1,10 @@
 # ZFT Tools
 
+## Development standards
+
+Zantor's Realms maintains its authoritative Foundry module development, validation, compatibility, and release policies in a centrally managed, private ZFT standards repository. New feature development is **Foundry V14-first**; the existing version numbers, supported environments, and release history documented here remain unchanged. This documentation notice does not imply V14 compatibility for a previously V13-only build.
+
+
 Shared Foundry VTT canvas controls for the **Zantor's Realms Foundry Tools (ZFT)** modules.
 
 ## Purpose
@@ -26,7 +31,7 @@ ZFT Cinematics is the first planned integration. Other ZFT modules can opt in as
 
 ## Development and releases
 
-See [DEVELOPMENT.md](DEVELOPMENT.md) for the shared ZFT branching, testing, versioning, promotion-to-main, and GitHub Release workflow.
+The current ZFT-wide workflow is maintained in the private central standards repository. [DEVELOPMENT.md](DEVELOPMENT.md) is retained as a **superseded historical reference** for earlier development and release policy.
 
 ## Repository conventions
 

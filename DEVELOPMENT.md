@@ -1,5 +1,8 @@
 # ZFT Development, Versioning, and Release Workflow
 
+> **Historical document, superseded on 2026-10-18.** The authoritative ZFT development, Foundry-generation versioning, validation, and release policy now resides in Zantor's Realms' private central standards repository. The policies and versions below are preserved for historical reference, not as current shared requirements. Current development is V14-first; no existing release numbers or compatibility claims change because of this documentation update.
+
+
 This document is the shared workflow for **Zantor's Realms Foundry Tools (ZFT)** GitHub repositories, including `zft-tools` and `zft-cinematics`.
 
 **Core rule:** Keep working code stable, test changes before promotion, and **never write to any GitHub repository without explicit, task-specific approval from the owner**. This applies to every branch, file, commit, tag, release, and repository setting.
