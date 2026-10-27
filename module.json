@@ -1,8 +1,8 @@
 {
   "id": "zft-tools",
   "title": "ZFT Tools",
-  "description": "Shared Zantor's Realms Foundry Tools canvas control group; supports GM tools and explicitly player-facing actions.",
-  "version": "0.1.0-dev.7",
+  "description": "ZFT canvas control management with isolated named module groups.",
+  "version": "0.1.0-dev.8",
   "authors": [
     {
       "name": "Zantor's Realms"
