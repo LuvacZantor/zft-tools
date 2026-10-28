@@ -2,7 +2,7 @@
   "id": "zft-tools",
   "title": "ZFT Tools",
   "description": "ZFT canvas control management with isolated named module groups.",
-  "version": "0.1.0-dev.8",
+  "version": "0.1.0-dev.12",
   "authors": [
     {
       "name": "Zantor's Realms"

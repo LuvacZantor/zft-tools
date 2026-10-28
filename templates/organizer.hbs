@@ -1,0 +1,20 @@
+<section class="zft-organizer">
+  <header class="zft-organizer-head"><div class="zft-organizer-sigil"><i class="fa-solid fa-toolbox"></i></div>
+    <div><h2>ZFT Tool Organizer</h2><p>GM-managed shared layouts</p></div></header>
+  <nav class="zft-organizer-roles"><button type="button" data-role="gm" class="{{#if gmSelected}}active{{/if}}">GM Layout</button><button type="button" data-role="player" class="{{#if playerSelected}}active{{/if}}">Player Layout</button></nav>
+  <p class="zft-organizer-help">Drag to reorder {{roleLabel}} actions. Choose icon colors and show/hide actions. Module permissions remain enforced.</p>
+  <ol class="zft-organizer-list">
+  {{#each tools}}
+    <li draggable="true" data-zft-tool="{{id}}" class="zft-organizer-row">
+      <i class="fa-solid fa-grip-vertical zft-organizer-grip"></i>
+      <span class="zft-organizer-icon" style="color:{{color}}"><i class="{{icon}}"></i></span>
+      <div class="zft-organizer-identity"><strong>{{label}}</strong><small>{{owner}}</small>
+        <div class="zft-color-controls">{{#each palette}}<button type="button" data-preset="{{hex}}" class="zft-preset {{#if selected}}selected{{/if}}" style="background:{{hex}}" title="{{hex}}"></button>{{/each}}<input data-icon-color type="color" value="{{color}}" title="Custom color"></div>
+      </div>
+      <label class="zft-organizer-toggle" title="Show action"><input type="checkbox" aria-label="Show {{label}}" {{#if enabled}}checked{{/if}}><i class="fa-solid fa-eye"></i></label>
+    </li>
+  {{else}}<li class="zft-organizer-empty">No actions registered for this role on this client. Player-only actions may require testing with a player account.</li>{{/each}}
+  </ol>
+  <footer class="zft-organizer-footer"><button type="button" data-action="reset-layout"><i class="fa-solid fa-rotate-left"></i> Reset {{roleLabel}}</button><button type="button" class="zft-organizer-save" data-action="save-layout"><i class="fa-solid fa-floppy-disk"></i> Save {{roleLabel}} Layout</button></footer>
+  <p class="zft-organizer-note">Layouts apply across connected clients by role. Hidden tools cannot bypass module permissions.</p>
+</section>
